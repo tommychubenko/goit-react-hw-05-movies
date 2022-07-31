@@ -13,3 +13,36 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.AppBar{
+  border: 1px solid #000000;
+}
+
+.book-list{
+  list-style: none;
+}
+
+.book-item {
+  margin-bottom: 10px;
+}
+
+.book-link{
+  color: darkslategrey;
+  text-decoration: none;
+  padding: 5px 10px;
+
+}
+
+.movie_genres{
+  display: inline;
+}
+
+.movie_genres:not(:last-child){
+  margin-right: 10px;
+
+}
+
+.additional-info {
+  /* border-top: 1px dotted dodgerblue;
+  border-bottom: 1px dotted dodgerblue; */
+}

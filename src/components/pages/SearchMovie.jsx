@@ -3,7 +3,7 @@ import { useParams, Outlet, Link, useNavigate } from 'react-router-dom';
 import { Route, Routes } from 'react-router-dom';
 import { SearchResults } from './SearchResults';
 
-export const Movies = ({ sendMovieInquiry }) => {
+export const SearchMovie = ({ sendMovieInquiry }) => {
   const [movieInquiry, setMovieInquiry] = useState('');
 
   const onChange = e => {

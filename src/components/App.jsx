@@ -1,5 +1,6 @@
 import { AppBar } from './appBar/AppBar';
 import { Routes, Route, Outlet } from 'react-router-dom';
+import { useState } from 'react';
 import { Home } from './pages/Home';
 import { Movies } from './pages/Movies';
 import { Actors } from './pages/Actors';
@@ -7,9 +8,21 @@ import { NotFound } from './pages/NotFoud';
 import { MovieDetails } from './pages/MovieDetails';
 import { Cast } from './pages/Cast';
 import { Reviews } from './pages/Reviews';
+import { SearchResults } from './pages/SearchResults';
+import { SearchMovie } from './pages/SearchMovie';
 
 export const App = () => {
   const API = '9e6113c0b6a4b2fdad1879122d0c5886';
+  const [movieInquiry, setMovieInquiry] = useState('');
+  const [selectedMovie, setSelectedMovie] = useState('');
+
+  const getSelectedMovie = selectedMovie => {
+    setSelectedMovie(selectedMovie);
+  };
+
+  const getMovieInquiry = data => {
+    console.log(data);
+  };
 
   return (
     <div
@@ -20,10 +33,22 @@ export const App = () => {
       <AppBar />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="movies" element={<Movies />} />
-        <Route path="movies/:movieId" element={<MovieDetails API={API} />}>
-          <Route path="cast" element={<Cast />} />
-          <Route path="reviews" element={<Reviews />} />
+        <Route
+          path="movies"
+          element={<Movies API={API} sendMovieInquiry={getMovieInquiry} />}
+        >
+          <Route path="/movies?query=:word" element={<SearchResults />} />
+          {/* ?query=:word */}
+        </Route>
+        <Route
+          path="movies/:movieId"
+          element={<MovieDetails API={API} selectedMovie={getSelectedMovie} />}
+        >
+          <Route
+            path="cast"
+            element={<Cast API={API} selectedMovie={selectedMovie} />}
+          />
+          <Route path="reviews" element={<Reviews API={API} />} />
         </Route>
         <Route path="actors" element={<Actors />} />
         <Route path="*" element={<NotFound />} />
@@ -31,6 +56,3 @@ export const App = () => {
     </div>
   );
 };
-
-// API KEY 9e6113c0b6a4b2fdad1879122d0c5886
-// https://api.themoviedb.org/3/movie/550?api_key=9e6113c0b6a4b2fdad1879122d0c5886

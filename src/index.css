@@ -42,7 +42,44 @@ code {
 
 }
 
-.additional-info {
-  /* border-top: 1px dotted dodgerblue;
-  border-bottom: 1px dotted dodgerblue; */
+
+.movie_card{
+  display: flex;
+  gap: 15px;
+}
+
+.movie_image{
+  width: 250px;
+}
+
+.cast-and-reviews {
+  padding: 20px 0;
+  min-height: 300px;
+}
+
+.cast_actor--list{
+  /* padding: 20px 0; */
+  display: flex;
+  list-style: none;
+  gap: 15px;
+  padding: 0;
+}
+.cast_actor--image{
+  width: 100px;
+  /* height: 150px; */
+}
+
+.cast_actor--item{
+  margin-right: 15px;
+  width: 100px;
+}
+
+.movies_search {
+  padding: 20px 0;
+}
+
+.movies_search--input{
+  margin-right: 5px;
+  width: 40%;
+  /* height: 20px; */
 }

@@ -14,8 +14,9 @@ export const Movies = ({ sendMovieInquiry }) => {
 
   const onSubmit = e => {
     e.preventDefault();
-    sendMovieInquiry(movieInquiry);
-    navigate(`/movies?query=${movieInquiry}`);
+
+    // sendMovieInquiry(movieInquiry);
+    navigate(`/movies/search/${movieInquiry}`);
     setMovieInquiry('');
   };
 
@@ -29,12 +30,10 @@ export const Movies = ({ sendMovieInquiry }) => {
           placeholder="Enter name of movie that you are looking for"
           onChange={onChange}
         />
-        {/* <Link to={`/movies?query=${movieInquiry}`}> */}
+
         <button type="submit">Search</button>
-        {/* </Link> */}
       </form>
       <Outlet />
-      {/* <SearchResults /> */}
     </div>
   );
 };

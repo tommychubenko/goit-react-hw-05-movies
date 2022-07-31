@@ -9,7 +9,6 @@ import { MovieDetails } from './pages/MovieDetails';
 import { Cast } from './pages/Cast';
 import { Reviews } from './pages/Reviews';
 import { SearchResults } from './pages/SearchResults';
-import { SearchMovie } from './pages/SearchMovie';
 
 export const App = () => {
   const API = '9e6113c0b6a4b2fdad1879122d0c5886';
@@ -37,8 +36,12 @@ export const App = () => {
           path="movies"
           element={<Movies API={API} sendMovieInquiry={getMovieInquiry} />}
         >
-          <Route path="/movies?query=:word" element={<SearchResults />} />
-          {/* ?query=:word */}
+          <Route
+            // !!! Я намагався вписати закоментований варіант, але він не працює, праює тільки коли випадковий параметрипісля слеша ('/')
+            // path="/movies?query=:word"
+            path="/movies/search/:word"
+            element={<SearchResults />}
+          />
         </Route>
         <Route
           path="movies/:movieId"

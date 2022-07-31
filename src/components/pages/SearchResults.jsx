@@ -6,8 +6,7 @@ export const SearchResults = () => {
 
   return (
     <div>
-      <h2>Search results</h2>
-      <hr />
+      <h2>Search results for {word}</h2>
     </div>
   );
 };

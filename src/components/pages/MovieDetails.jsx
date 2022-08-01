@@ -16,6 +16,11 @@ export const MovieDetails = ({ API, selectedMovie }) => {
 
   let navigate = useNavigate();
 
+  const NavigateBack = () => {
+    // navigate(`/movies/${movieId}`);
+    navigate(-1);
+  };
+
   useEffect(() => {
     selectedMovie(movie);
     getExactMovieDetails();
@@ -31,7 +36,7 @@ export const MovieDetails = ({ API, selectedMovie }) => {
         <div>
           <button
             onClick={() => {
-              navigate(-1);
+              NavigateBack();
             }}
           >
             Go Back

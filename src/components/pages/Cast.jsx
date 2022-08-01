@@ -15,7 +15,7 @@ export const Cast = ({ API }) => {
   useEffect(() => {
     // setMovie(selectedMovie);
     getExactMovieDetails();
-  }, []);
+  }, [movieId]);
 
   return (
     <ul className="cast_actor--list">

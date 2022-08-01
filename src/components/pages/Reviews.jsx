@@ -5,7 +5,7 @@ export const Reviews = ({ API }) => {
   const [movie, setMovie] = useState('');
   const { movieId } = useParams();
 
-  const imagePath = 'https://image.tmdb.org/t/p/w500';
+  // const imagePath = 'https://image.tmdb.org/t/p/w500';
 
   const getExactMovieDetails = () => {
     fetch(
@@ -15,7 +15,7 @@ export const Reviews = ({ API }) => {
 
   useEffect(() => {
     getExactMovieDetails();
-  }, []);
+  }, [movieId]);
 
   return (
     <div>

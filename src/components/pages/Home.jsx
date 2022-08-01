@@ -14,7 +14,7 @@ export const Home = ({ API }) => {
 
   useEffect(() => {
     fetchMovies();
-  }, []);
+  }, [popularMovies]);
 
   const MarkupMoviesTitles = () => {
     return (

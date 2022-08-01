@@ -1,5 +1,5 @@
 import { AppBar } from './appBar/AppBar';
-import { Routes, Route, Outlet } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import { useState } from 'react';
 import { Home } from './pages/Home';
 import { Movies } from './pages/Movies';

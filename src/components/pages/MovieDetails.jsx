@@ -17,12 +17,13 @@ export const MovieDetails = ({ API, selectedMovie }) => {
   let navigate = useNavigate();
 
   useEffect(() => {
-    getExactMovieDetails();
-  }, []);
-
-  useEffect(() => {
     selectedMovie(movie);
-  }, [movie]);
+    getExactMovieDetails();
+  }, [movieId]);
+
+  // useEffect(() => {
+  //   selectedMovie(movie);
+  // }, [movie]);
 
   return (
     <div>

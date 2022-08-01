@@ -15,7 +15,7 @@ export const Reviews = ({ API }) => {
 
   useEffect(() => {
     getExactMovieDetails();
-  }, [movieId]);
+  }, [movieId]); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <div>

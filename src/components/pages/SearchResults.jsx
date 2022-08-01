@@ -19,7 +19,7 @@ export const SearchResults = ({ API }) => {
 
   useEffect(() => {
     getMovieByWord();
-  }, [word]);
+  }, [word]); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <div className="search_results--thumb">

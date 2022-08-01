@@ -14,7 +14,7 @@ export const Home = ({ API }) => {
 
   useEffect(() => {
     fetchMovies();
-  }, [popularMovies]);
+  }, [popularMovies]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const MarkupMoviesTitles = () => {
     return (

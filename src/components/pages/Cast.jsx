@@ -15,7 +15,7 @@ export const Cast = ({ API }) => {
   useEffect(() => {
     // setMovie(selectedMovie);
     getExactMovieDetails();
-  }, [movieId]);
+  }, [movieId]); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <ul className="cast_actor--list">

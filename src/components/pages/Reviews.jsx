@@ -32,8 +32,8 @@ export const Reviews = ({ API }) => {
                     <p>{review.content}</p>
                   </li>
                 );
-              } // eslint-disable-line react-hooks/exhaustive-deps
-            }) // eslint-disable-line react-hooks/exhaustive-deps
+              } // eslint-disable-line
+            }) // eslint-disable-line
           }
         </ul>
       ) : (

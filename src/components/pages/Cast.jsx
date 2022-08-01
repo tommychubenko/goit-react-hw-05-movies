@@ -39,9 +39,10 @@ export const Cast = ({ API }) => {
                 )}
                 <p>{actor.name}</p>
               </li>
-            ); // eslint-disable-line react-hooks/exhaustive-deps
+            );
           }
-        })}
+        })}{' '}
+      // eslint-disable-line
     </ul>
   );
 };

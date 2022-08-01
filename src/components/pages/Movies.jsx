@@ -1,9 +1,7 @@
 import { useState } from 'react';
-import { useParams, Outlet, Link, useNavigate } from 'react-router-dom';
-import { Route, Routes } from 'react-router-dom';
-import { SearchResults } from './SearchResults';
+import { Outlet, useNavigate } from 'react-router-dom';
 
-export const Movies = ({ sendMovieInquiry }) => {
+export const Movies = () => {
   const [movieInquiry, setMovieInquiry] = useState('');
 
   const onChange = e => {
@@ -15,7 +13,6 @@ export const Movies = ({ sendMovieInquiry }) => {
   const onSubmit = e => {
     e.preventDefault();
 
-    // sendMovieInquiry(movieInquiry);
     navigate(`/movies/search/${movieInquiry}`);
     setMovieInquiry('');
   };

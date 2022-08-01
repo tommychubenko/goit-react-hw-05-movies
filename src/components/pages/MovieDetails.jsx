@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useParams, Outlet } from 'react-router-dom';
+import { useParams, Outlet, useNavigate } from 'react-router-dom';
 import { StyledLink } from '../navigation/Navigation.module';
 
 export const MovieDetails = ({ API, selectedMovie }) => {
@@ -14,6 +14,8 @@ export const MovieDetails = ({ API, selectedMovie }) => {
     ).then(response => response.json().then(response => setMovie(response)));
   };
 
+  let navigate = useNavigate();
+
   useEffect(() => {
     getExactMovieDetails();
   }, []);
@@ -26,6 +28,13 @@ export const MovieDetails = ({ API, selectedMovie }) => {
     <div>
       {movie && (
         <div>
+          <button
+            onClick={() => {
+              navigate(-1);
+            }}
+          >
+            Go Back
+          </button>
           <div className="movie_card">
             <div>
               <img

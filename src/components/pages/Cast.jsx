@@ -1,7 +1,7 @@
 import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 
-export const Cast = ({ API, selectedMovie }) => {
+export const Cast = ({ API }) => {
   const { movieId } = useParams();
   const [movie, setMovie] = useState('');
   const imagePath = 'https://image.tmdb.org/t/p/w500';
@@ -37,14 +37,6 @@ export const Cast = ({ API, selectedMovie }) => {
                     className="cast_actor--image"
                   />
                 )}
-                {/* <img
-                  src={
-                    imagePath + actor.profile_path
-                    // ??  '/images/default_actor.jpg'
-                  }
-                  alt=""
-                  className="cast_actor--image"
-                /> */}
                 <p>{actor.name}</p>
               </li>
             );

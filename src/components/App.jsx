@@ -3,7 +3,6 @@ import { Routes, Route, Outlet } from 'react-router-dom';
 import { useState } from 'react';
 import { Home } from './pages/Home';
 import { Movies } from './pages/Movies';
-import { Actors } from './pages/Actors';
 import { NotFound } from './pages/NotFoud';
 import { MovieDetails } from './pages/MovieDetails';
 import { Cast } from './pages/Cast';
@@ -12,7 +11,7 @@ import { SearchResults } from './pages/SearchResults';
 
 export const App = () => {
   const API = '9e6113c0b6a4b2fdad1879122d0c5886';
-  const [movieInquiry, setMovieInquiry] = useState('');
+  // const [movieInquiry, setMovieInquiry] = useState('');
   const [selectedMovie, setSelectedMovie] = useState('');
 
   const getSelectedMovie = selectedMovie => {
@@ -31,7 +30,7 @@ export const App = () => {
     >
       <AppBar />
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Home API={API} />} />
         <Route
           path="movies"
           element={<Movies API={API} sendMovieInquiry={getMovieInquiry} />}
@@ -40,7 +39,7 @@ export const App = () => {
             // !!! Я намагався вписати закоментований варіант, але він не працює, праює тільки коли випадковий параметрипісля слеша ('/')
             // path="/movies?query=:word"
             path="/movies/search/:word"
-            element={<SearchResults />}
+            element={<SearchResults API={API} />}
           />
         </Route>
         <Route
@@ -53,7 +52,7 @@ export const App = () => {
           />
           <Route path="reviews" element={<Reviews API={API} />} />
         </Route>
-        <Route path="actors" element={<Actors />} />
+
         <Route path="*" element={<NotFound />} />
       </Routes>
     </div>

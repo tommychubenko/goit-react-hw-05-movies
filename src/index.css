@@ -83,3 +83,28 @@ code {
   width: 40%;
   /* height: 20px; */
 }
+.search_results--thumb{
+  padding: 50px 0;
+}
+
+
+.search_results--title{
+  margin-bottom: 20px;
+}
+
+.search_results--image{
+  width: 200px;
+}
+
+.search_results--list{
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  gap: 15px;
+}
+
+.search_results--item {
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+}

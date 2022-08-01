@@ -1,13 +1,12 @@
 import { useEffect, useState } from 'react';
-import { Link, Outlet } from 'react-router-dom';
-// 9e6113c0b6a4b2fdad1879122d0c5886
+import { Link } from 'react-router-dom';
 
-export const Home = () => {
+export const Home = ({ API }) => {
   const [popularMovies, setPopularMovies] = useState([]);
 
   const fetchMovies = () => {
     fetch(
-      'https://api.themoviedb.org/3/trending/movie/day?api_key=9e6113c0b6a4b2fdad1879122d0c5886'
+      `https://api.themoviedb.org/3/trending/movie/day?api_key=${API}`
     ).then(response =>
       response.json().then(response => setPopularMovies(response.results))
     );

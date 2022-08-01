@@ -14,7 +14,6 @@ export const Reviews = ({ API }) => {
   };
 
   useEffect(() => {
-    // setMovie(selectedMovie);
     getExactMovieDetails();
   }, []);
 
@@ -39,21 +38,5 @@ export const Reviews = ({ API }) => {
         'Sorry. We do not have any reviews for this movie.'
       )}
     </div>
-
-    // <ul className="review_list">
-    //   {movie &&
-    //     movie.reviews.results.map((review, index) => {
-    //       if (index < 5) {
-    //         return (
-    //           <li key={review.author_details.id} className="review_item">
-    //             <p>
-    //               <b>{review.author}</b>
-    //             </p>
-    //             <p>{review.content}</p>
-    //           </li>
-    //         );
-    //       }
-    //     })}
-    // </ul>
   );
 };

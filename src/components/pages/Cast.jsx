@@ -13,9 +13,8 @@ export const Cast = ({ API }) => {
   };
 
   useEffect(() => {
-    // setMovie(selectedMovie);
     getExactMovieDetails();
-  }, [movieId]); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [movieId]);
 
   return (
     <ul className="cast_actor--list">
@@ -42,7 +41,6 @@ export const Cast = ({ API }) => {
             );
           }
         })}{' '}
-      // eslint-disable-line
     </ul>
   );
 };

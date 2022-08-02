@@ -24,7 +24,7 @@ export const MovieDetails = ({ API, selectedMovie }) => {
   useEffect(() => {
     selectedMovie(movie);
     getExactMovieDetails();
-  }, [movieId]); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [movieId]);
 
   // useEffect(() => {
   //   selectedMovie(movie);

@@ -41,7 +41,8 @@ export const Cast = ({ API }) => {
               </li>
             );
           }
-        })}{' '}
+          return;
+        })}
     </ul>
   );
 };

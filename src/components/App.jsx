@@ -32,9 +32,9 @@ export const App = () => {
       <Routes>
         <Route path="/" element={<Home API={API} />} />
         <Route path="/goit-react-hw-05-movies/" element={<Home API={API} />} />
-        <Route path="/movies" element={<Movies API={API} />}></Route>
+        <Route path="movies" element={<Movies API={API} />}></Route>
         <Route
-          path="/movies/:movieId"
+          path="movies/:movieId"
           element={<MovieDetails API={API} selectedMovie={getSelectedMovie} />}
         >
           <Route

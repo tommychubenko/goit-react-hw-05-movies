@@ -20,7 +20,7 @@ export const Cast = ({ API }) => {
   return (
     <ul className="cast_actor--list">
       {movie &&
-        movie.credits.cast.map((actor, index) => {
+        movie.credits.cast.map(actor => {
           return (
             <li key={actor.id} className="cast_actor--item">
               {actor.profile_path ? (

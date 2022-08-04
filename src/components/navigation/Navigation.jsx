@@ -4,7 +4,7 @@ export const Navigation = () => {
   return (
     <nav>
       <StyledLink to="/">Main page</StyledLink>
-      <StyledLink to="/movies">Movies</StyledLink>
+      <StyledLink to="movies">Movies</StyledLink>
     </nav>
   );
 };

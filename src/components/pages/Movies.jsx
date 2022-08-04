@@ -22,6 +22,7 @@ export const Movies = ({ API }) => {
   useEffect(() => {
     setSearchResult('');
     query && getMovieByWord(query);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [query]);
 
   useEffect(() => {

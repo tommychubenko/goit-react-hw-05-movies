@@ -19,11 +19,12 @@ export const Cast = ({ API }) => {
 
   return (
     <ul className="cast_actor--list">
-      {/* {movie &&
+      {movie &&
         movie.credits.cast
-          .filter(index => {
-            index < 9;
-          }).map(actor => {
+          .filter((actor, index) => {
+            return index < 5;
+          })
+          .map((actor, index) => {
             return (
               <li key={actor.id} className="cast_actor--item">
                 {actor.profile_path ? (
@@ -42,32 +43,31 @@ export const Cast = ({ API }) => {
                 <p>{actor.name}</p>
               </li>
             );
-          })} */}
+          })}
 
-      {movie &&
+      {/* {movie &&
         movie.credits.cast.map((actor, index) => {
-          if (index > 9) {
-            return;
+          if (index < 9) {
+            return (
+              <li key={actor.id} className="cast_actor--item">
+                {actor.profile_path ? (
+                  <img
+                    src={imagePath + actor.profile_path}
+                    alt=""
+                    className="cast_actor--image"
+                  />
+                ) : (
+                  <img
+                    src="https://dbis-informatik.uibk.ac.at/sites/default/files/default_images/default-avatar_0.png"
+                    alt=""
+                    className="cast_actor--image"
+                  />
+                )}
+                <p>{actor.name}</p>
+              </li>
+            );
           }
-          return (
-            <li key={actor.id} className="cast_actor--item">
-              {actor.profile_path ? (
-                <img
-                  src={imagePath + actor.profile_path}
-                  alt=""
-                  className="cast_actor--image"
-                />
-              ) : (
-                <img
-                  src="https://dbis-informatik.uibk.ac.at/sites/default/files/default_images/default-avatar_0.png"
-                  alt=""
-                  className="cast_actor--image"
-                />
-              )}
-              <p>{actor.name}</p>
-            </li>
-          );
-        })}
+        })} */}
     </ul>
   );
 };

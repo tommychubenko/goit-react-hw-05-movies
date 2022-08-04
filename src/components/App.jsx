@@ -30,7 +30,7 @@ export const App = () => {
     >
       <AppBar />
       <Routes>
-        <Route path="/" element={<Home API={API} />} />
+        <Route index path="/" element={<Home API={API} />} />
         <Route
           path="movies"
           element={<Movies API={API} sendMovieInquiry={getMovieInquiry} />}

@@ -26,6 +26,7 @@ export const Movies = ({ API }) => {
 
   useEffect(() => {
     setSearchResult('');
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const onChange = e => {

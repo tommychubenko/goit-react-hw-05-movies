@@ -18,9 +18,9 @@ export const App = () => {
     setSelectedMovie(selectedMovie);
   };
 
-  const getMovieInquiry = data => {
-    console.log(data);
-  };
+  // const getMovieInquiry = data => {
+  //   console.log(data);
+  // };
 
   return (
     <div

@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { fetchPopularMovies } from '../../api/api';
+// import { fetchPopularMovies } from '../../api/api';
 
 export const Home = ({ API }) => {
   const [popularMovies, setPopularMovies] = useState([]);

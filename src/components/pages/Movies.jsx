@@ -12,7 +12,6 @@ export const Movies = () => {
 
   const onSubmit = e => {
     e.preventDefault();
-
     navigate(`/movies/search/${movieInquiry}`);
     setMovieInquiry('');
   };

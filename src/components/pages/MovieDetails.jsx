@@ -26,9 +26,7 @@ export const MovieDetails = ({ API, selectedMovie }) => {
     getExactMovieDetails();
   }, [movieId]);
 
-  // useEffect(() => {
-  //   selectedMovie(movie);
-  // }, [movie]);
+
 
   return (
     <div>

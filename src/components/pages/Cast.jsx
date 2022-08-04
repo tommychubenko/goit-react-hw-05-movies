@@ -22,7 +22,7 @@ export const Cast = ({ API }) => {
       {movie &&
         movie.credits.cast
           .filter((actor, index) => {
-            return index < 5;
+            return index < 9;
           })
           .map((actor, index) => {
             return (

@@ -60,6 +60,7 @@ code {
 .cast_actor--list{
   /* padding: 20px 0; */
   display: flex;
+  flex-wrap: wrap;
   list-style: none;
   gap: 15px;
   padding: 0;

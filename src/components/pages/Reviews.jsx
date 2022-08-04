@@ -21,8 +21,11 @@ export const Reviews = ({ API }) => {
     <div>
       {movie && movie.reviews.results.length > 0 ? (
         <ul className="review_list">
-          {movie.reviews.results.map((review, index) => {
-            if (index < 5) {
+          {movie.reviews.results
+            .filter((review, index) => {
+              return index < 5;
+            })
+            .map((review, index) => {
               return (
                 <li key={review.id} className="review_item">
                   <p>
@@ -31,8 +34,7 @@ export const Reviews = ({ API }) => {
                   <p>{review.content}</p>
                 </li>
               );
-            }
-          })}
+            })}
         </ul>
       ) : (
         'Sorry. We do not have any reviews for this movie.'

@@ -21,21 +21,18 @@ export const Reviews = ({ API }) => {
     <div>
       {movie && movie.reviews.results.length > 0 ? (
         <ul className="review_list">
-          {movie.reviews.results.map(
-            (review, index) => {
-              if (index < 5) {
-                return (
-                  <li key={review.id} className="review_item">
-                    <p>
-                      <b>{review.author}</b>
-                    </p>
-                    <p>{review.content}</p>
-                  </li>
-                );
-              }
+          {movie.reviews.results.map((review, index) => {
+            if (index < 5) {
+              return (
+                <li key={review.id} className="review_item">
+                  <p>
+                    <b>{review.author}</b>
+                  </p>
+                  <p>{review.content}</p>
+                </li>
+              );
             }
-            // eslint-disable-next-line react-hooks/exhaustive-deps
-          )}
+          })}
         </ul>
       ) : (
         'Sorry. We do not have any reviews for this movie.'

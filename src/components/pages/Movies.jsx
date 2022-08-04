@@ -58,9 +58,7 @@ export const Movies = ({ API }) => {
     return (
       searchresults && (
         <div className="search_results--thumb">
-          <h2 className="search_results--title">
-            Search results for {searchterm}
-          </h2>
+          <h2 className="search_results--title">Search results for {query}</h2>
           <ul className="search_results--list">
             {searchresults.map(movie => {
               return (

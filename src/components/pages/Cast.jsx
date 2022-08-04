@@ -20,26 +20,30 @@ export const Cast = ({ API }) => {
   return (
     <ul className="cast_actor--list">
       {movie &&
-        movie.credits.cast.map(actor => {
-          return (
-            <li key={actor.id} className="cast_actor--item">
-              {actor.profile_path ? (
-                <img
-                  src={imagePath + actor.profile_path}
-                  alt=""
-                  className="cast_actor--image"
-                />
-              ) : (
-                <img
-                  src="https://dbis-informatik.uibk.ac.at/sites/default/files/default_images/default-avatar_0.png"
-                  alt=""
-                  className="cast_actor--image"
-                />
-              )}
-              <p>{actor.name}</p>
-            </li>
-          );
-        })}
+        movie.credits.cast
+          .filter(index => {
+            index < 9;
+          })
+          .map(actor => {
+            return (
+              <li key={actor.id} className="cast_actor--item">
+                {actor.profile_path ? (
+                  <img
+                    src={imagePath + actor.profile_path}
+                    alt=""
+                    className="cast_actor--image"
+                  />
+                ) : (
+                  <img
+                    src="https://dbis-informatik.uibk.ac.at/sites/default/files/default_images/default-avatar_0.png"
+                    alt=""
+                    className="cast_actor--image"
+                  />
+                )}
+                <p>{actor.name}</p>
+              </li>
+            );
+          })}
 
       {/* {movie &&
         movie.credits.cast.map((actor, index) => {

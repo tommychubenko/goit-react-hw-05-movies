@@ -22,7 +22,7 @@ export const Cast = ({ API }) => {
       {movie &&
         movie.credits.cast.map((actor, index) => {
           if (index < 9) {
-            const r = (
+            return (
               <li key={actor.id} className="cast_actor--item">
                 {actor.profile_path ? (
                   <img
@@ -40,7 +40,6 @@ export const Cast = ({ API }) => {
                 <p>{actor.name}</p>
               </li>
             );
-            return r;
           }
         })}
     </ul>

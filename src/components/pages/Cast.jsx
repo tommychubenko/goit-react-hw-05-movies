@@ -41,7 +41,7 @@ export const Cast = ({ API }) => {
               </li>
             );
           }
-          return;
+          // eslint-disable-next-line react-hooks/exhaustive-deps
         })}
     </ul>
   );

@@ -5,8 +5,6 @@ export const Reviews = ({ API }) => {
   const [movie, setMovie] = useState('');
   const { movieId } = useParams();
 
-  // const imagePath = 'https://image.tmdb.org/t/p/w500';
-
   const getExactMovieDetails = () => {
     fetch(
       `https://api.themoviedb.org/3/movie/${movieId}?api_key=${API}&append_to_response=credits,reviews`

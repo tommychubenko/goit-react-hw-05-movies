@@ -7,10 +7,10 @@ import { NotFound } from './pages/NotFoud';
 import { MovieDetails } from './pages/MovieDetails';
 import { Cast } from './pages/Cast';
 import { Reviews } from './pages/Reviews';
-import { SearchResults } from './pages/SearchResults';
 
 export const App = () => {
   const API = '9e6113c0b6a4b2fdad1879122d0c5886';
+
   // const [movieInquiry, setMovieInquiry] = useState('');
   const [selectedMovie, setSelectedMovie] = useState('');
 
@@ -32,17 +32,7 @@ export const App = () => {
       <Routes>
         <Route path="/" element={<Home API={API} />} />
         <Route path="goit-react-hw-05-movies/" element={<Home API={API} />} />
-        <Route
-          path="movies"
-          element={<Movies API={API} sendMovieInquiry={getMovieInquiry} />}
-        >
-          <Route
-            // !!! Я намагався вписати закоментований варіант, але він не працює, праює тільки коли випадковий параметрипісля слеша ('/')
-            // path="/movies?query=:word"
-            path="/movies/search/:word"
-            element={<SearchResults API={API} />}
-          />
-        </Route>
+        <Route path="movies" element={<Movies API={API} />}></Route>
         <Route
           path="movies/:movieId"
           element={<MovieDetails API={API} selectedMovie={getSelectedMovie} />}

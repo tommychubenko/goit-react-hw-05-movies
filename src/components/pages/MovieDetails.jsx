@@ -1,10 +1,14 @@
-import { useEffect, useState } from 'react';
-import { useParams, Outlet, useNavigate } from 'react-router-dom';
+import { useEffect, useState, useRef } from 'react';
+import { useParams, Outlet, useNavigate, useLocation } from 'react-router-dom';
 import { StyledLink } from '../navigation/Navigation.module';
 
-export const MovieDetails = ({ API, selectedMovie }) => {
+export const MovieDetails = ({ API, selectedMovie, state }) => {
   const { movieId } = useParams();
   const [movie, setMovie] = useState('');
+  // const [location, setLocation] = useState('');
+  const location = useLocation();
+  // const { from } = location.state.from;
+  // console.log(location);
 
   const imagePath = 'https://image.tmdb.org/t/p/w500/';
 
@@ -14,30 +18,34 @@ export const MovieDetails = ({ API, selectedMovie }) => {
     ).then(response => response.json().then(response => setMovie(response)));
   };
 
-  let navigate = useNavigate();
+  // let navigate = useNavigate();
 
-  const NavigateBack = () => {
-    // navigate(`/movies/${movieId}`);
-    navigate(-1);
-  };
+  // console.log(location?.state);
+  const savedNavigate = useRef(location.state?.from);
+  // console.log(savedNavigate.current);
 
   useEffect(() => {
     selectedMovie(movie);
     getExactMovieDetails();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [movieId]);
 
   return (
     <div>
       {movie && (
         <div>
-          <button
+          <StyledLink
+            to={savedNavigate.current ?? 'xxx'}
+            state={{ from: location }}
+          >
+            BACK
+          </StyledLink>
+          {/* <button
             onClick={() => {
               NavigateBack();
             }}
           >
             Go Back
-          </button>
+          </button> */}
           <div className="movie_card">
             <div>
               <img

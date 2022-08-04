@@ -1,8 +1,12 @@
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
+import { fetchPopularMovies } from '../../api/api';
 
 export const Home = ({ API }) => {
   const [popularMovies, setPopularMovies] = useState([]);
+
+  const location = useLocation();
+  // const { from } = location.state;
 
   const fetchMovies = () => {
     fetch(
@@ -14,15 +18,25 @@ export const Home = ({ API }) => {
 
   useEffect(() => {
     fetchMovies();
+
+    // const GetPopularMovies = async () => {
+    //   const r = await fetchPopularMovies();
+    //   console.log(r);
+    // };
+    // GetPopularMovies();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [popularMovies]);
+  }, []);
 
   const MarkupMoviesTitles = () => {
     return (
       <ul className="book-list">
         {popularMovies.map(movie => (
           <li key={movie.id} className="book-item">
-            <Link className="book-link" to={`/movies/${movie.id}`}>
+            <Link
+              className="book-link"
+              to={`/movies/${movie.id}`}
+              state={{ from: location }}
+            >
               {movie.title}
             </Link>
           </li>

@@ -21,6 +21,28 @@ export const Cast = ({ API }) => {
     <ul className="cast_actor--list">
       {movie &&
         movie.credits.cast.map((actor, index) => {
+          return (
+            <li key={actor.id} className="cast_actor--item">
+              {actor.profile_path ? (
+                <img
+                  src={imagePath + actor.profile_path}
+                  alt=""
+                  className="cast_actor--image"
+                />
+              ) : (
+                <img
+                  src="https://dbis-informatik.uibk.ac.at/sites/default/files/default_images/default-avatar_0.png"
+                  alt=""
+                  className="cast_actor--image"
+                />
+              )}
+              <p>{actor.name}</p>
+            </li>
+          );
+        })}
+
+      {/* {movie &&
+        movie.credits.cast.map((actor, index) => {
           if (index < 9) {
             return (
               <li key={actor.id} className="cast_actor--item">
@@ -41,7 +63,7 @@ export const Cast = ({ API }) => {
               </li>
             );
           }
-        })}
+        })} */}
     </ul>
   );
 };

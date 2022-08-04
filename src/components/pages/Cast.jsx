@@ -14,6 +14,7 @@ export const Cast = ({ API }) => {
 
   useEffect(() => {
     getExactMovieDetails();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [movieId]);
 
   return (

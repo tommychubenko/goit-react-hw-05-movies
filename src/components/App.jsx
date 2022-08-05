@@ -9,18 +9,11 @@ import { Cast } from './pages/Cast';
 import { Reviews } from './pages/Reviews';
 
 export const App = () => {
-  const API = '9e6113c0b6a4b2fdad1879122d0c5886';
-
-  // const [movieInquiry, setMovieInquiry] = useState('');
   const [selectedMovie, setSelectedMovie] = useState('');
 
   const getSelectedMovie = selectedMovie => {
     setSelectedMovie(selectedMovie);
   };
-
-  // const getMovieInquiry = data => {
-  //   console.log(data);
-  // };
 
   return (
     <div
@@ -30,18 +23,15 @@ export const App = () => {
     >
       <AppBar />
       <Routes>
-        <Route path="/" element={<Home API={API} />} />
-        <Route path="/goit-react-hw-05-movies/" element={<Home API={API} />} />
-        <Route path="movies" element={<Movies API={API} />}></Route>
+        <Route path="/" element={<Home />} />
+        <Route path="/goit-react-hw-05-movies/" element={<Home />} />
+        <Route path="movies" element={<Movies />}></Route>
         <Route
           path="movies/:movieId"
-          element={<MovieDetails API={API} selectedMovie={getSelectedMovie} />}
+          element={<MovieDetails selectedMovie={getSelectedMovie} />}
         >
-          <Route
-            path="cast"
-            element={<Cast API={API} selectedMovie={selectedMovie} />}
-          />
-          <Route path="reviews" element={<Reviews API={API} />} />
+          <Route path="cast" element={<Cast selectedMovie={selectedMovie} />} />
+          <Route path="reviews" element={<Reviews />} />
         </Route>
 
         <Route path="*" element={<NotFound />} />

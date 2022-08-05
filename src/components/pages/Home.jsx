@@ -1,30 +1,14 @@
 import { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-// import { fetchPopularMovies } from '../../api/api';
+import { fetchPopularMovies } from '../../api/api';
 
-export const Home = ({ API }) => {
+export const Home = () => {
   const [popularMovies, setPopularMovies] = useState([]);
 
   const location = useLocation();
-  // const { from } = location.state;
-
-  const fetchMovies = () => {
-    fetch(
-      `https://api.themoviedb.org/3/trending/movie/day?api_key=${API}`
-    ).then(response =>
-      response.json().then(response => setPopularMovies(response.results))
-    );
-  };
 
   useEffect(() => {
-    fetchMovies();
-
-    // const GetPopularMovies = async () => {
-    //   const r = await fetchPopularMovies();
-    //   console.log(r);
-    // };
-    // GetPopularMovies();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    fetchPopularMovies().then(r => setPopularMovies(r.results));
   }, []);
 
   const MarkupMoviesTitles = () => {

@@ -1,18 +1,13 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import { getExactMovieDetails } from '../../api/api';
 
-export const Reviews = ({ API }) => {
+export const Reviews = () => {
   const [movie, setMovie] = useState('');
   const { movieId } = useParams();
 
-  const getExactMovieDetails = () => {
-    fetch(
-      `https://api.themoviedb.org/3/movie/${movieId}?api_key=${API}&append_to_response=credits,reviews`
-    ).then(response => response.json().then(response => setMovie(response)));
-  };
-
   useEffect(() => {
-    getExactMovieDetails();
+    getExactMovieDetails(movieId).then(r => setMovie(r));
   }, [movieId]); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (

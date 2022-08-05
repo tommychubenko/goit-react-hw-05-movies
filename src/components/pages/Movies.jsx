@@ -5,10 +5,10 @@ import {
   useLocation,
   useSearchParams,
 } from 'react-router-dom';
+import { getMovieByWord } from '../../api/api';
 
-export const Movies = ({ API }) => {
+export const Movies = () => {
   const [movieInquiry, setMovieInquiry] = useState('');
-  const [searchterm, setSearchterm] = useState('');
   const [searchresults, setSearchResult] = useState();
 
   const imagePath = 'https://image.tmdb.org/t/p/w500/';
@@ -17,18 +17,12 @@ export const Movies = ({ API }) => {
 
   const [searchParams] = useSearchParams();
   const query = searchParams.get('query');
-  // console.log(query, typeof query);
 
   useEffect(() => {
     setSearchResult('');
-    query && getMovieByWord(query);
+    query && getMovieByWord(query).then(r => setSearchResult(r.results));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [query]);
-
-  useEffect(() => {
-    setSearchResult('');
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
 
   const onChange = e => {
     setMovieInquiry(e.currentTarget.value);
@@ -39,19 +33,8 @@ export const Movies = ({ API }) => {
   const onSubmit = e => {
     e.preventDefault();
     navigate(`/movies?query=${movieInquiry}`);
-    // getMovieByWord(movieInquiry);
-    setSearchterm(movieInquiry);
-    setMovieInquiry('');
-  };
 
-  const getMovieByWord = word => {
-    fetch(
-      `https://api.themoviedb.org/3/search/movie?api_key=${API}&query=${word
-        .split(' ')
-        .join('+')}`
-    ).then(response =>
-      response.json().then(response => setSearchResult(response.results))
-    );
+    setMovieInquiry('');
   };
 
   const Markup = () => {
@@ -104,7 +87,6 @@ export const Movies = ({ API }) => {
       </form>
 
       {searchresults && Markup()}
-      {/* <Outlet /> */}
     </div>
   );
 };

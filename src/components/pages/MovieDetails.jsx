@@ -1,32 +1,20 @@
 import { useEffect, useState, useRef } from 'react';
 import { useParams, Outlet, useLocation } from 'react-router-dom';
 import { StyledLink } from '../navigation/Navigation.module';
+import { getExactMovieDetails } from '../../api/api';
 
-export const MovieDetails = ({ API, selectedMovie, state }) => {
+export const MovieDetails = ({ selectedMovie }) => {
   const { movieId } = useParams();
   const [movie, setMovie] = useState('');
-  // const [location, setLocation] = useState('');
-  const location = useLocation();
-  // const { from } = location.state.from;
-  // console.log(location);
 
+  const location = useLocation();
   const imagePath = 'https://image.tmdb.org/t/p/w500/';
 
-  const getExactMovieDetails = () => {
-    fetch(
-      `https://api.themoviedb.org/3/movie/${movieId}?api_key=${API}&append_to_response=credits,reviews`
-    ).then(response => response.json().then(response => setMovie(response)));
-  };
-
-  // let navigate = useNavigate();
-
-  // console.log(location?.state);
   const savedNavigate = useRef(location.state?.from);
-  // console.log(savedNavigate.current);
 
   useEffect(() => {
     selectedMovie(movie);
-    getExactMovieDetails();
+    getExactMovieDetails(movieId).then(r => setMovie(r));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [movieId]);
 
@@ -40,13 +28,7 @@ export const MovieDetails = ({ API, selectedMovie, state }) => {
           >
             BACK
           </StyledLink>
-          {/* <button
-            onClick={() => {
-              NavigateBack();
-            }}
-          >
-            Go Back
-          </button> */}
+
           <div className="movie_card">
             <div>
               <img

@@ -5,6 +5,7 @@ import {
   useLocation,
   useSearchParams,
 } from 'react-router-dom';
+
 import { getMovieByWord } from '../../api/api';
 
 export const Movies = () => {
